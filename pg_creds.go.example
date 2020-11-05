@@ -1,0 +1,18 @@
+package main
+
+// NewPostgresCredentials - init credentials for connecting and taking dumps
+//
+// This way credentials will be build in in final executable
+// ...so you don't need to enter long and unsafe command lines args or parsing `my_config.json`
+//
+// Ofc you are free to implement this function by taking arguments from command line (or parsing json, yaml...)
+func NewPostgresCredentials() *PostgresCredentials {
+	return &PostgresCredentials{
+		Host:     "localhost",
+		Port:     "5432",
+		User:     "pg-user",
+		Password: "secret",
+		Database: "db-name",
+		DumpsDir: "/abs/path/to/backups/root_folder/",
+	}
+}
