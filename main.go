@@ -14,11 +14,10 @@ type Config struct {
 	User     string
 	Password string
 	Database string
-	// MainBackupDir - folder where all backups will be stored after dumping from postgres
+	// MainBackupDir - folder where all backups will be stored after dumping postgres db
 	MainBackupDir string
 	// RemoveDailyBackupFolderAfterNDay - removes the backup folder after `N` days
-	// e.g. one may want to delete entire backup dir after 3 days
-	// only deletes `MainBackupDir` backups
+	// e.g. one may want to delete entire backup dir after 3 days (only deletes from `MainBackupDir` root)
 	RemoveDailyBackupFolderAfterNDay int
 	// SecondaryBackupDir - optionally specifying directory where backups will be copied
 	// on specified times in `MakeSecondaryBackupsAt`...
@@ -97,7 +96,6 @@ func shouldCreateSecondaryBackup(c *Config) bool {
 }
 
 func createPathBeforeNDay(basePath string, daysBefore int) string {
-	// subtracting days must be done be negative values
 	if daysBefore > 0 {
 		daysBefore = -daysBefore
 	}
