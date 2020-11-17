@@ -15,7 +15,7 @@ Simple utility to take full backups from Postgres. It also puts backups in `tree
 ```
 
 ### Quick start
-Implement `NewPostgresCredentials` function as in example in `pg_creds.go.example` & build
+Implement `NewConfig` function as in example in `pg_creds.go.example` & build
 ```sh
 # clone and cd into repo
 # create `pg_creds.go` file 
